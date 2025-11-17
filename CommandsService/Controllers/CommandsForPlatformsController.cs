@@ -15,6 +15,7 @@ namespace CommandsService.Controllers
             return Ok("Inbound test from Platforms Controller");
         }
 
+        // Only for testing
         [HttpGet]
         public ActionResult Nothing()
         {
