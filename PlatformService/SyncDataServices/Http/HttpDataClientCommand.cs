@@ -12,12 +12,19 @@ namespace PlatformService.SyncDataServices.Http
         private readonly string _commandsServiceUrl;
 
 
-        public HttpDataClientCommand(HttpClient httpClient, IConfiguration configuration)
+        public HttpDataClientCommand(HttpClient httpClient, IConfiguration configuration, IHostEnvironment environment)
         {
             _httpClient = httpClient;
             //_configuration = configuration;
 
-            _commandsServiceUrl = configuration.GetValue<string>("CommandsService")!;
+            if (environment.IsDevelopment())
+            {
+                _commandsServiceUrl = configuration.GetValue<string>("CommandsServiceDev")!;
+            }
+            else
+            {
+                _commandsServiceUrl = configuration.GetValue<string>("CommandsServiceProd")!;
+            }
         }
 
         public async Task SendPlatformToCommand(PlatformReadDTO platformReadDTO)
