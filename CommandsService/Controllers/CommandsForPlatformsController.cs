@@ -14,5 +14,12 @@ namespace CommandsService.Controllers
             Console.WriteLine("--> Inbound POST # Command Service");
             return Ok("Inbound test from Platforms Controller");
         }
+
+        [HttpGet]
+        public ActionResult Nothing()
+        {
+            Console.WriteLine("Get works");
+            return Ok("get works");
+        }
     }
 }
