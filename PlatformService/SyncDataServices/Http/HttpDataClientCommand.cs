@@ -25,6 +25,7 @@ namespace PlatformService.SyncDataServices.Http
             {
                 _commandsServiceUrl = configuration.GetValue<string>("CommandsServiceProd")!;
             }
+            Console.WriteLine($"Commands service url: {_commandsServiceUrl}");
         }
 
         public async Task SendPlatformToCommand(PlatformReadDTO platformReadDTO)
