@@ -8,9 +8,5 @@
             //await CommandsServiceRequests.GetAsync();
             //await CommandsServiceRequests.PostAsync();
         }
-
-        
-
-        
     }
 }
