@@ -4,12 +4,12 @@
     {
         public async static Task Main()
         {
-            await NodePort();
-            //await CommandsServiceGet();
-            //await CommandsServicePost();
+            await NodePortAsync();
+            //await CommandsServiceGetAsync();
+            //await CommandsServicePostAsync();
         }
 
-        public async static Task NodePort()
+        public async static Task NodePortAsync()
         {
             Console.WriteLine("Creating HTTP client...");
             HttpClient client = new HttpClient();
@@ -36,7 +36,7 @@
         }
 
         // Worked
-        public async static Task CommandsServiceGet()
+        public async static Task CommandsServiceGetAsync()
         {
             Console.WriteLine("Creating HTTP client...");
             HttpClient client = new HttpClient();
@@ -63,7 +63,7 @@
         }
 
         // Worked
-        public async static Task CommandsServicePost()
+        public async static Task CommandsServicePostAsync()
         {
             Console.WriteLine("Creating HTTP client...");
             HttpClient client = new HttpClient();
