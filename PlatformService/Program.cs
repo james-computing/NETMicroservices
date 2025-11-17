@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using PlatformService.Data;
 using PlatformService.Profiles;
+using PlatformService.SyncDataServices.Http;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +29,7 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 
 builder.Services.AddScoped<IPlatformRepo,PlatformRepo>();
 builder.Services.AddAutoMapper(cfg => { }, typeof(PlatformsProfile));
+builder.Services.AddHttpClient<ICommandDataClient,HttpDataClientCommand>();
 
 WebApplication app = builder.Build();
 
