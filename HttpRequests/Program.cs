@@ -7,6 +7,7 @@
             await CommandsServiceGet();
         }
 
+        // Worked
         public async static Task CommandsServiceGet()
         {
             Console.WriteLine("Creating HTTP client...");
