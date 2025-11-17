@@ -56,6 +56,8 @@ namespace PlatformService.Controllers
             _repository.CreatePlatform(platform);
             _repository.SaveChanges();
 
+            // Tell the Commands service about the platform created
+
             PlatformReadDTO platformReadDTO = _mapper.Map<PlatformReadDTO>(platform);
 
             try
