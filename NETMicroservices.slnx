@@ -1,4 +1,5 @@
 <Solution>
   <Project Path="CommandsService/CommandsService.csproj" Id="dd72cf08-9a4e-4c7a-94c5-a7fcba8d8140" />
+  <Project Path="HttpRequests/HttpRequests.csproj" Id="4065072b-e2ed-430b-a404-991fea4b3a92" />
   <Project Path="PlatformService/PlatformService.csproj" />
 </Solution>
