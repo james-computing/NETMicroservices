@@ -6,12 +6,12 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: platformservice
+      app: platformsservice
   template:
     metadata:
       labels:
-        app: platformservice
+        app: platformsservice
     spec:
       containers:
-        - name: platformservice
-          image: jmstoledo/platformservice:latest
+        - name: platformsservice
+          image: jmstoledo/platformsservice:latest
