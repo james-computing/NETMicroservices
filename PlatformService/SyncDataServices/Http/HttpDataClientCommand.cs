@@ -6,10 +6,8 @@ namespace PlatformService.SyncDataServices.Http
 {
     public class HttpDataClientCommand : ICommandDataClient
     {
-
         private readonly HttpClient _httpClient;
         private readonly string _commandsServiceUrl;
-
 
         public HttpDataClientCommand(HttpClient httpClient, IConfiguration configuration, IHostEnvironment environment)
         {
