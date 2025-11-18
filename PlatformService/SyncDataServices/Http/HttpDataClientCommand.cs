@@ -8,14 +8,12 @@ namespace PlatformService.SyncDataServices.Http
     {
 
         private readonly HttpClient _httpClient;
-        //private readonly IConfiguration _configuration;
         private readonly string _commandsServiceUrl;
 
 
         public HttpDataClientCommand(HttpClient httpClient, IConfiguration configuration, IHostEnvironment environment)
         {
             _httpClient = httpClient;
-            //_configuration = configuration;
 
             if (environment.IsDevelopment())
             {
