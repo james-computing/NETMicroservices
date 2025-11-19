@@ -1,0 +1,24 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: http-route
+spec:
+  parentRefs:
+  - name: cafe
+  hostnames:
+  - "acme.com"
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /api/Platforms
+    backendRefs:
+    - name: platforms-clusterip-srv
+      port: 80
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /api/CommandsForPlatforms
+    backendRefs:
+    - name: commands-clusterip-srv
+      port: 80
