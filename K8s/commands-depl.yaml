@@ -16,7 +16,7 @@ spec:
         - name: commandsservice
           image: jmstoledo/commandsservice:latest
           ports:
-          - containerPort: 8180
+          - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
@@ -30,4 +30,4 @@ spec:
     - name: commandsservice
       protocol: TCP
       port: 80
-      targetPort: 8180
+      targetPort: 8080
