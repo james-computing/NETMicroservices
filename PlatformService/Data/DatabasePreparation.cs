@@ -4,7 +4,7 @@ namespace PlatformService.Data
 {
     public static class DatabasePreparation
     {
-        public static void Population(IApplicationBuilder applicationBuilder)
+        public static void PopulateDatabase(IApplicationBuilder applicationBuilder)
         {
             using ( IServiceScope serviceScope = 
                 applicationBuilder.ApplicationServices.CreateScope())
