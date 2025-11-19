@@ -11,7 +11,7 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
-/*
+// SQL Server
 string? connectionString = builder.Configuration.GetConnectionString("Default");
 if(connectionString == null)
 {
@@ -21,11 +21,12 @@ if(connectionString == null)
 builder.Services.AddDbContext<AppDbContext>(
     (DbContextOptionsBuilder options) => options.UseSqlServer(connectionString)
     );
-*/
 
+/* In memory database
 Console.WriteLine("--> Using InMem Db");
 builder.Services.AddDbContext<AppDbContext>(opt =>
      opt.UseInMemoryDatabase("InMem"));
+*/
 
 builder.Services.AddScoped<IPlatformRepo,PlatformRepo>();
 builder.Services.AddAutoMapper(cfg => { }, typeof(PlatformsProfile));
@@ -45,6 +46,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-DatabasePreparation.Population(app);
+DatabasePreparation.PopulateDatabase(app);
 
 app.Run();
