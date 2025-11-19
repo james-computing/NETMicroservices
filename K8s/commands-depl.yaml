@@ -15,3 +15,17 @@ spec:
       containers:
         - name: commandsservice
           image: jmstoledo/commandsservice:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: commands-clusterip-srv
+spec:
+  type: ClusterIP
+  selector:
+    app: commandsservice
+  ports:
+    - name: commandsservice
+      protocol: TCP
+      port: 80
+      targetPort: 8180
