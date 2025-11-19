@@ -12,8 +12,18 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
 // SQL Server
-string? connectionString = builder.Configuration.GetConnectionString("Default");
-if(connectionString == null)
+string connectionStringLabel;
+if (builder.Environment.IsDevelopment())
+{
+    connectionStringLabel = "DefaultDev";
+}
+else
+{
+    connectionStringLabel = "DefaultProd";
+}
+
+string? connectionString = builder.Configuration.GetConnectionString(connectionStringLabel);
+if (connectionString == null)
 {
     Console.WriteLine("Failed to read connection string");
     return;
