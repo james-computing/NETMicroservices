@@ -1,4 +1,5 @@
-﻿using PlatformService.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using PlatformService.Models;
 
 namespace PlatformService.Data
 {
@@ -17,6 +18,17 @@ namespace PlatformService.Data
 
         private static void SeedData(AppDbContext dbContext)
         {
+            Console.WriteLine("--> Attempting to apply migrations...");
+            try
+            {
+                dbContext.Database.Migrate();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine($"--> Could not run migrations: {ex.Message}");
+            }
+
+
             if (!dbContext.Platforms.Any())
             {
                 Console.WriteLine("--> Seeding data...");
