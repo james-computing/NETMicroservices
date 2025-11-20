@@ -22,6 +22,7 @@ else
     connectionStringLabel = "DefaultProd";
 }
 
+Console.WriteLine($"connectionStringLabel: {connectionStringLabel}");
 string? connectionString = builder.Configuration.GetConnectionString(connectionStringLabel);
 if (connectionString == null)
 {
