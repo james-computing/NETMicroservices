@@ -5113,7 +5113,7 @@ spec:
                 type: object
               persistence:
                 default:
-                  storage: 200Mi
+                  storage: 300Mi
                 description: The desired persistent storage configuration for each
                   Pod in the cluster.
                 properties:
@@ -5121,7 +5121,7 @@ spec:
                     anyOf:
                     - type: integer
                     - type: string
-                    default: 200Mi
+                    default: 300Mi
                     description: |-
                       The requested size of the persistent volume attached to each Pod in the RabbitmqCluster.
                       The format of this field matches that defined by kubernetes/apimachinery.
@@ -5186,10 +5186,10 @@ spec:
                 default:
                   limits:
                     cpu: 200m
-                    memory: 200Mi
+                    memory: 300Mi
                   requests:
                     cpu: 200m
-                    memory: 200Mi
+                    memory: 300Mi
                 description: The desired compute resource requirements of Pods in
                   the cluster.
                 properties:
