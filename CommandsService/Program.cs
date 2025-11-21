@@ -1,4 +1,5 @@
 using CommandsService.Data;
+using CommandsService.Profiles;
 using Microsoft.EntityFrameworkCore;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
@@ -15,6 +16,8 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
      opt.UseInMemoryDatabase("InMem"));
 
 builder.Services.AddScoped<ICommandRepo, CommandRepo>();
+builder.Services.AddAutoMapper(cfg => { }, typeof(CommandsProfile));
+
 WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.
