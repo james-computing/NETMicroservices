@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,6 +7,11 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+// In memory database
+Console.WriteLine("--> Using InMem Db");
+builder.Services.AddDbContext<AppDbContext>(opt =>
+     opt.UseInMemoryDatabase("InMem"));
 
 WebApplication app = builder.Build();
 
