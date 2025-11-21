@@ -33,7 +33,7 @@ namespace PlatformService.SyncDataServices.Http
                 );
 
             HttpResponseMessage response = await _httpClient.PostAsync(
-                $"{_commandsServiceUrl}/api/CommandsForPlatforms",
+                $"{_commandsServiceUrl}/api/CommandsPlatforms",
                 httpContent);
 
             if (response.IsSuccessStatusCode)
