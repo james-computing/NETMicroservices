@@ -5113,7 +5113,7 @@ spec:
                 type: object
               persistence:
                 default:
-                  storage: 100Mi
+                  storage: 200Mi
                 description: The desired persistent storage configuration for each
                   Pod in the cluster.
                 properties:
@@ -5121,7 +5121,7 @@ spec:
                     anyOf:
                     - type: integer
                     - type: string
-                    default: 100Mi
+                    default: 200Mi
                     description: |-
                       The requested size of the persistent volume attached to each Pod in the RabbitmqCluster.
                       The format of this field matches that defined by kubernetes/apimachinery.
