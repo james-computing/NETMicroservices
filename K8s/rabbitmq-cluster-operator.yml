@@ -5186,10 +5186,10 @@ spec:
                 default:
                   limits:
                     cpu: 200m
-                    memory: 100Mi
+                    memory: 200Mi
                   requests:
                     cpu: 200m
-                    memory: 100Mi
+                    memory: 200Mi
                 description: The desired compute resource requirements of Pods in
                   the cluster.
                 properties:
@@ -5788,10 +5788,10 @@ spec:
         resources:
           limits:
             cpu: 200m
-            memory: 100Mi
+            memory: 200Mi
           requests:
             cpu: 200m
-            memory: 100Mi
+            memory: 200Mi
         securityContext:
           allowPrivilegeEscalation: false
           capabilities:
