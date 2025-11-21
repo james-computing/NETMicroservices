@@ -1,3 +1,4 @@
+using CommandsService.Data;
 using Microsoft.EntityFrameworkCore;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
@@ -13,6 +14,7 @@ Console.WriteLine("--> Using InMem Db");
 builder.Services.AddDbContext<AppDbContext>(opt =>
      opt.UseInMemoryDatabase("InMem"));
 
+builder.Services.AddScoped<ICommandRepo, CommandRepo>();
 WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.
