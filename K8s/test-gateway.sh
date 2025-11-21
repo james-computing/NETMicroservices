@@ -1,8 +1,8 @@
 # GET
 curl --resolve acme.com:80:127.0.0.1 http://acme.com/api/Platforms
 curl --resolve acme.com:80:127.0.0.1 http://acme.com/api/Platforms/1
-curl --resolve acme.com:80:127.0.0.1 http://acme.com/api/CommandsForPlatforms
+curl --resolve acme.com:80:127.0.0.1 http://acme.com/api/CommandsPlatforms
 
 # POST
 curl --resolve acme.com:80:127.0.0.1 --json '{"Name": "name", "Publisher": "publisher", "Cost": "cost"}' http://acme.com/api/Platforms
-curl --resolve acme.com:80:127.0.0.1 -X POST http://acme.com/api/CommandsForPlatforms
+curl --resolve acme.com:80:127.0.0.1 -X POST http://acme.com/api/CommandsPlatforms

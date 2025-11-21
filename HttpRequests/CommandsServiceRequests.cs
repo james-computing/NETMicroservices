@@ -14,7 +14,7 @@ namespace HttpRequests
             Console.WriteLine("Making HTTP request...");
             try
             {
-                HttpResponseMessage response = await client.GetAsync("https://localhost:7178/api/CommandsForPlatforms");
+                HttpResponseMessage response = await client.GetAsync("https://localhost:7178/api/CommandsPlatforms");
                 Console.WriteLine("Received response...");
                 if (response.IsSuccessStatusCode)
                 {
@@ -43,7 +43,7 @@ namespace HttpRequests
             Console.WriteLine("Making HTTP request...");
             try
             {
-                HttpResponseMessage response = await client.PostAsync("https://localhost:7178/api/CommandsForPlatforms", content);
+                HttpResponseMessage response = await client.PostAsync("https://localhost:7178/api/CommandsPlatforms", content);
                 Console.WriteLine("Received response...");
                 if (response.IsSuccessStatusCode)
                 {
