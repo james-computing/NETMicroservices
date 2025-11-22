@@ -2,3 +2,18 @@ apiVersion: rabbitmq.com/v1beta1
 kind: RabbitmqCluster
 metadata:
   name: hello-world
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: loadbalancer-hello
+spec:
+  type: LoadBalancer
+  selector:
+    app.kubernetes.io/component: rabbitmq
+    app.kubernetes.io/name: hello-world
+    app.kubernetes.io/part-of: rabbitmq
+  ports:
+    - protocol: TCP
+      port: 15672
+      targetPort: 15672
