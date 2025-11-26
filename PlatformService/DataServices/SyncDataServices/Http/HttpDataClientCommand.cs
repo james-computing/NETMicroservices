@@ -24,6 +24,7 @@ namespace PlatformService.DataServices.SyncDataServices.Http
             Console.WriteLine($"Commands service url: {_commandsServiceUrl}");
         }
 
+        // This only tests making a POST request to the Commands service, but the Commands service doesn't use the data sent
         public async Task SendPlatformToCommand(PlatformReadDTO platformReadDTO)
         {
             HttpContent httpContent = new StringContent(
