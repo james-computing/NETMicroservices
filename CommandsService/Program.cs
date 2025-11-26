@@ -1,5 +1,6 @@
 using CommandsService.Data;
 using CommandsService.DataServices.Async;
+using CommandsService.DataServices.Sync.Grpc;
 using CommandsService.EventProcessing;
 using CommandsService.Profiles;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +21,7 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 builder.Services.AddAutoMapper(cfg => { }, typeof(CommandsProfile));
 builder.Services.AddScoped<ICommandRepo, CommandRepo>();
 builder.Services.AddSingleton<IEventProcessor, EventProcessor>();
+builder.Services.AddScoped<IPlatformDataClient, PlatformDataClient>();
 
 // RabbitMQ
 builder.Services.AddHostedService<MessageBusSubscriber>();
