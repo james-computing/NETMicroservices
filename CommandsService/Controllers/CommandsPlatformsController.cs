@@ -28,11 +28,14 @@ namespace CommandsService.Controllers
             return Ok(platformsDTOs);
         }
 
+        // Only for testing a POST request from the Platforms service to the Commands service
         [HttpPost]
         public ActionResult TestInboundConnection()
         {
+            const string warningMessage = "The data sent synchronously to the Commands Service by POST request isn't used. It only uses the data sent asynchronously by the message bus.";
             Console.WriteLine("--> Inbound POST # Command Service");
-            return Ok("Inbound test from Platforms Controller");
+            Console.WriteLine(warningMessage);
+            return Ok($"Inbound test from Platforms Controller\n{warningMessage}");
         }
     }
 }
