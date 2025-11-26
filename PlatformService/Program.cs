@@ -33,12 +33,6 @@ builder.Services.AddDbContext<AppDbContext>(
     (DbContextOptionsBuilder options) => options.UseSqlServer(connectionString)
     );
 
-/* In memory database
-Console.WriteLine("--> Using InMem Db");
-builder.Services.AddDbContext<AppDbContext>(opt =>
-     opt.UseInMemoryDatabase("InMem"));
-*/
-
 builder.Services.AddScoped<IPlatformRepo,PlatformRepo>();
 builder.Services.AddAutoMapper(cfg => { }, typeof(PlatformsProfile));
 builder.Services.AddHttpClient<ICommandDataClient,HttpDataClientCommand>();
