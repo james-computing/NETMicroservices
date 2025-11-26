@@ -1,12 +1,9 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using PlatformService.Data;
 using PlatformService.DataServices.AsyncDataServices;
+using PlatformService.DataServices.SyncDataServices.Grpc;
 using PlatformService.DataServices.SyncDataServices.Http;
 using PlatformService.Profiles;
-using RabbitMQ.Client;
-using RabbitMQ.Client.Events;
-using System.Reflection;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -51,6 +48,8 @@ if(successfulConnection == false)
 }
 builder.Services.AddSingleton<IMessageBusClient>(messageBusClient);
 
+builder.Services.AddGrpc();
+
 WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -65,6 +64,14 @@ if (app.Environment.IsDevelopment())
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapGrpcService<GrpcPlatformsService>();
+
+app.MapGet("protos/platforms.proto", async httpContext =>
+{
+    string protoFile = File.ReadAllText("Protos/platforms.proto");
+    await httpContext.Response.WriteAsync(protoFile);
+});
 
 DatabasePreparation.PopulateDatabase(app);
 
