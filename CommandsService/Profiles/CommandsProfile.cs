@@ -16,7 +16,7 @@ namespace CommandsService.Profiles
             CreateMap<PlatformPublishedDTO, Platform>()
                 .ForMember(
                     platform => platform.ExternalId,
-                    memberConfigurationExpression => memberConfigurationExpression.MapFrom(
+                    mce => mce.MapFrom(
                         platformPublishedDTO => platformPublishedDTO.Id)
                     );
             CreateMap<Platform, GenericEventDTO>();
