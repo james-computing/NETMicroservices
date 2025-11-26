@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using CommandsService.DTOs;
 using CommandsService.Models;
+using PlatformsService;
 
 namespace CommandsService.Profiles
 {
@@ -19,6 +20,12 @@ namespace CommandsService.Profiles
                         platformPublishedDTO => platformPublishedDTO.Id)
                     );
             CreateMap<Platform, GenericEventDTO>();
+            CreateMap<GRPCPlatformModel, Platform>()
+                .ForMember(
+                    platform => platform.ExternalId,
+                    mce => mce.MapFrom(grpcPlatformModel => grpcPlatformModel.PlatformId
+                    )
+                );
         }
     }
 }
