@@ -15,5 +15,10 @@ spec:
     app.kubernetes.io/part-of: rabbitmq
   ports:
     - protocol: TCP
+      name: amqp
+      port: 5672
+      targetPort: 5672
+    - protocol: TCP
+      name: manager
       port: 15672
       targetPort: 15672
