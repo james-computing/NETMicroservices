@@ -11,7 +11,7 @@ namespace HttpRequests
                 HostName = "localhost",
                 Port = 5672,
                 UserName = "default_user_5DQWlxMpiLRz842dNjP",
-                Password = "fF5wucx8NqEFST3ue_JT-O71dL3girKT"
+                Password = "fF5wucx8NqEFST3ue_JT-O71dL3girKT",
             };
 
             Console.WriteLine("Creating connection...");

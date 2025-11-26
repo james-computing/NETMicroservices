@@ -9,8 +9,8 @@
             //await CommandsServiceRequests.GetAsync();
             //await CommandsServiceRequests.PostAsync();
 
-            RabbitMQTest rabbitMQTest = new RabbitMQTest();
-            await rabbitMQTest.Publish();
+            //RabbitMQTest rabbitMQTest = new RabbitMQTest();
+            //await rabbitMQTest.Publish();
             //await rabbitMQTest.GetManagerPage();
         }
     }
