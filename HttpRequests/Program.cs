@@ -4,10 +4,14 @@
     {
         public async static Task Main()
         {
-            await PlatformsServiceRequests.PostAsync();
+            //await PlatformsServiceRequests.PostAsync();
             //await NodePortRequests.GetAsync();
             //await CommandsServiceRequests.GetAsync();
             //await CommandsServiceRequests.PostAsync();
+
+            RabbitMQTest rabbitMQTest = new RabbitMQTest();
+            await rabbitMQTest.Publish();
+            //await rabbitMQTest.GetManagerPage();
         }
     }
 }
