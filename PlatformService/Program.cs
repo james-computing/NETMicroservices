@@ -1,7 +1,12 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using PlatformService.Data;
+using PlatformService.DataServices.AsyncDataServices;
+using PlatformService.DataServices.SyncDataServices.Http;
 using PlatformService.Profiles;
-using PlatformService.SyncDataServices.Http;
+using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
+using System.Reflection;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -35,7 +40,16 @@ builder.Services.AddDbContext<AppDbContext>(
 
 builder.Services.AddScoped<IPlatformRepo,PlatformRepo>();
 builder.Services.AddAutoMapper(cfg => { }, typeof(PlatformsProfile));
-builder.Services.AddHttpClient<ICommandDataClient,HttpDataClientCommand>();
+builder.Services.AddHttpClient<ICommandDataClient, HttpDataClientCommand>();
+
+// RabbitMQ
+MessageBusClient messageBusClient = new MessageBusClient();
+bool successfulConnection = await messageBusClient.InitializeRabbitMQ(builder.Environment, builder.Configuration);
+if(successfulConnection == false)
+{
+    return;
+}
+builder.Services.AddSingleton<IMessageBusClient>(messageBusClient);
 
 WebApplication app = builder.Build();
 
