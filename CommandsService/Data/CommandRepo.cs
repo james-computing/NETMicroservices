@@ -27,6 +27,9 @@ namespace CommandsService.Data
             {
                 throw new ArgumentNullException(nameof(platform));
             }
+            Console.WriteLine("Ids of Platform to be added to Commands service database:");
+            Console.WriteLine($"Id = {platform.Id}");
+            Console.WriteLine($"ExternalId = {platform.ExternalId}");
             _dbContext.Platforms.Add(platform);
         }
 
