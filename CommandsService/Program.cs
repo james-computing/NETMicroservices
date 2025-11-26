@@ -1,4 +1,5 @@
 using CommandsService.Data;
+using CommandsService.EventProcessing;
 using CommandsService.Profiles;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,6 +17,7 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
      opt.UseInMemoryDatabase("InMem"));
 
 builder.Services.AddScoped<ICommandRepo, CommandRepo>();
+builder.Services.AddSingleton<IEventProcessor, EventProcessor>();
 builder.Services.AddAutoMapper(cfg => { }, typeof(CommandsProfile));
 
 WebApplication app = builder.Build();
