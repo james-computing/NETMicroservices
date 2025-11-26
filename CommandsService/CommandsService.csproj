@@ -28,4 +28,12 @@
     <PackageReference Include="RabbitMQ.Client" Version="7.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Protos\platforms.proto">
+      <GrpcServices>Server</GrpcServices>
+    </None>
+
+	  <Protobuf Include="Protos\platforms.proto" GrpcServices="Client" />
+  </ItemGroup>
+
 </Project>
