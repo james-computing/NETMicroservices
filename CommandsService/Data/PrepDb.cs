@@ -34,7 +34,7 @@ namespace CommandsService.Data
             Console.WriteLine("--> Seeding new platforms...");
             foreach(Platform platform in platforms)
             {
-                if(repo.ExternalPlatformExists(platform.Id) == false)
+                if(repo.ExternalPlatformExists(platform.ExternalId) == false)
                 {
                     repo.CreatePlatform(platform);
                 }
