@@ -1,3 +1,4 @@
+using CommandsService.AsyncDataServices;
 using CommandsService.Data;
 using CommandsService.EventProcessing;
 using CommandsService.Profiles;
@@ -19,6 +20,9 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 builder.Services.AddScoped<ICommandRepo, CommandRepo>();
 builder.Services.AddSingleton<IEventProcessor, EventProcessor>();
 builder.Services.AddAutoMapper(cfg => { }, typeof(CommandsProfile));
+
+// RabbitMQ
+builder.Services.AddHostedService<MessageBusSubscriber>();
 
 WebApplication app = builder.Build();
 
