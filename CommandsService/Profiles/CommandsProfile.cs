@@ -18,7 +18,11 @@ namespace CommandsService.Profiles
                     platform => platform.ExternalId,
                     mce => mce.MapFrom(
                         platformPublishedDTO => platformPublishedDTO.Id)
-                    );
+                    )
+                .ForMember(
+                    platform => platform.Id,
+                    mce => mce.Ignore() // ignore, so platformPublishedDTO.Id isn't mapped to platform.Id
+                );
             CreateMap<Platform, GenericEventDTO>();
             CreateMap<GRPCPlatformModel, Platform>()
                 .ForMember(
