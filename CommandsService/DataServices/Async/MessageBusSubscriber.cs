@@ -1,11 +1,10 @@
-﻿
-using CommandsService.EventProcessing;
+﻿using CommandsService.EventProcessing;
 using Microsoft.Extensions.Configuration;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
 
-namespace CommandsService.AsyncDataServices
+namespace CommandsService.DataServices.Async
 {
     public class MessageBusSubscriber : BackgroundService, IAsyncDisposable
     {
