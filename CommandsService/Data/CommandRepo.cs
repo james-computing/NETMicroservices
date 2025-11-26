@@ -11,7 +11,6 @@ namespace CommandsService.Data
             _dbContext = dbContext;
         }
 
-
         public void CreateCommand(int platformId, Command command)
         {
             if(command == null)
@@ -51,6 +50,11 @@ namespace CommandsService.Data
         public bool PlatformExists(int platformId)
         {
             return _dbContext.Platforms.Any(platform => platform.Id == platformId);
+        }
+
+        public bool ExternalPlatformExists(int platformId)
+        {
+            return _dbContext.Platforms.Any(platform => platform.ExternalId == platformId);
         }
 
         public bool SaveChanges()
