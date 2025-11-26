@@ -12,6 +12,13 @@ namespace CommandsService.Profiles
             CreateMap<Platform, PlatformReadDTO>();
             CreateMap<Command, CommandReadDTO>();
             CreateMap<CommandCreateDTO, Command>();
+            CreateMap<PlatformPublishedDTO, Platform>()
+                .ForMember(
+                    platform => platform.ExternalId,
+                    memberConfigurationExpression => memberConfigurationExpression.MapFrom(
+                        platformPublishedDTO => platformPublishedDTO.Id)
+                    );
+            CreateMap<Platform, GenericEventDTO>();
         }
     }
 }
