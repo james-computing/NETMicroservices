@@ -18,7 +18,7 @@ spec:
   - matches:
     - path:
         type: PathPrefix
-        value: /api/CommandsForPlatforms
+        value: /api/CommandsPlatforms
     backendRefs:
     - name: commands-clusterip-srv
       port: 80
