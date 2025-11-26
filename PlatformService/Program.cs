@@ -45,7 +45,8 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.UseHttpsRedirection();
+// HttpsRedirection is failing for Kubernetes
+//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
