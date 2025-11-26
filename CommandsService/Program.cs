@@ -17,9 +17,9 @@ Console.WriteLine("--> Using InMem Db");
 builder.Services.AddDbContext<AppDbContext>(opt =>
      opt.UseInMemoryDatabase("InMem"));
 
+builder.Services.AddAutoMapper(cfg => { }, typeof(CommandsProfile));
 builder.Services.AddScoped<ICommandRepo, CommandRepo>();
 builder.Services.AddSingleton<IEventProcessor, EventProcessor>();
-builder.Services.AddAutoMapper(cfg => { }, typeof(CommandsProfile));
 
 // RabbitMQ
 builder.Services.AddHostedService<MessageBusSubscriber>();
