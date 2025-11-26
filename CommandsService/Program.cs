@@ -1,5 +1,5 @@
-using CommandsService.AsyncDataServices;
 using CommandsService.Data;
+using CommandsService.DataServices.Async;
 using CommandsService.EventProcessing;
 using CommandsService.Profiles;
 using Microsoft.EntityFrameworkCore;
