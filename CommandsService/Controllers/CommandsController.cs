@@ -33,7 +33,7 @@ namespace CommandsService.Controllers
             return Ok(commandsDTOs);
         }
 
-        [HttpGet("/commandId/{commandId}", Name = "GetCommandForPlatform")]
+        [HttpGet("commandId/{commandId}", Name = "GetCommandForPlatform")]
         public ActionResult<CommandReadDTO> GetCommandForPlatform(int platformId, int commandId)
         {
             Console.WriteLine($"--> Hit GetCommandForPlatform for platformId = {platformId}, commandId = {commandId}");
