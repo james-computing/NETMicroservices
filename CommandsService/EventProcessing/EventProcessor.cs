@@ -63,7 +63,12 @@ namespace CommandsService.EventProcessing
         {
             using (var scope = _scopeFactory.CreateScope())
             {
-                ICommandRepo repo = scope.ServiceProvider.GetService<ICommandRepo>()!;
+                ICommandRepo? repo = scope.ServiceProvider.GetService<ICommandRepo>();
+                if(repo == null)
+                {
+                    Console.WriteLine("Failed to get service ICommandRepo in EventProcessor.AddPlatform");
+                    return;
+                }
                 PlatformPublishedDTO? platformPublishedDTO = JsonSerializer.Deserialize<PlatformPublishedDTO>(platformPublishedMessage);
 
                 if (platformPublishedDTO == null)
