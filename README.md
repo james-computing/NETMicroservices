@@ -14,4 +14,9 @@ As tecnologias utilizadas são:
 
 # Estrutura do Projeto
 
-O projeto consiste em 2 serviços principais, que são aplicações ASP.NET Core. Uma é o Platforms service e a outra é o Commands service. Essas duas aplicações implementam APIs REST. Ambas aplicações executam como containers em Kubernetes. Elas comunicam entre si e com um usuário externo através de serviços das Kubernetes, como ClusterIP e LoadBalancer.
+A arquitetura do projeto se resume no diagrama abaixo, em que somente as componentes principais são ilustradas:
+
+<img width="916" height="765" alt="design" src="https://github.com/user-attachments/assets/a8b57051-4019-4132-af02-0f490a39251f" />
+
+
+O projeto consiste em 2 serviços principais, que são aplicações ASP.NET Core. Um é o Platforms service e a outro é o Commands service. Essas duas aplicações implementam APIs REST e executam como containers em Kubernetes. As APIs desses serviços são simples, sendo o objetivo maior demonstrar como montar uma arquitetura de microserviços. São utilizados serviços do tipo ClusterIP para que os pods dessas aplicações se comuniquem dentro do cluster de Kubernetes.
