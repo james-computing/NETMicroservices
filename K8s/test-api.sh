@@ -1,3 +1,6 @@
+# Tests ordered according to functionality, not the order they should be run.
+# To just run a test script, use test-api-ordered.sh
+
 # Platforms service
 # GET
 curl --resolve acme.com:80:127.0.0.1 http://acme.com/api/Platforms
