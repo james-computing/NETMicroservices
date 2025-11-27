@@ -1,4 +1,4 @@
-# Run this script to test the api
+# Execute each command in order to test the api
 
 # Get all platforms from the Platforms service
 curl --resolve acme.com:80:127.0.0.1 http://acme.com/api/Platforms
