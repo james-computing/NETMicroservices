@@ -1,4 +1,4 @@
-Este é um projeto ASP.NET Core que usa a arquitetura de microserviços. Ele segue ideias do seguinte tutorial:
+Este é um projeto ASP.NET Core que usa a arquitetura de microserviços. Ele é uma adaptação do tutorial abaixo, mas com diversas modificações para utilizar versões mais recentes das tecnologias.
 
 [![Video Title](https://img.youtube.com/vi/DgVjEo3OGBI/0.jpg)](https://www.youtube.com/watch?v=DgVjEo3OGBI)
 
